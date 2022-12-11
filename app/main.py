@@ -1,20 +1,18 @@
-# coleta de informação
-def coleta_informacao():
+from paciente import Paciente
+from diagnostico_imc import Diagnostico_imc
 
-    peso = int(input("Digite seu peso :"))
-    altura = float(input("Digite sua altura :"))
-    return peso,altura
+nome = str(input('Digite o nome do paciente: '))
+idade = int(input('Digite a idade do paciente: '))
+peso = float(input('Digite o peso do paciente: '))
+altura = float(input('Digite a altura do paciente: '))
 
-# calculo imc
-def calculo_imc(peso,altura):
-    imc = peso/(altura*altura) 
-    return imc
+paciente = Paciente(nome, idade, altura, peso)
+imc_paciente = paciente.imc()
 
-informacoes = coleta_informacao()
+diagnostico_imc = Diagnostico_imc(paciente.get_imc)
+diagnostico_imc = diagnostico_imc.diagnostico_imc()
 
-peso = informacoes[0]
-altura = informacoes[1]
+paciente.set_diagnostico_imc(diagnostico_imc)
 
-print(calculo_imc(peso,altura))
-
+#print(paciente)
 
